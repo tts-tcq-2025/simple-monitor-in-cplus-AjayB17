@@ -3,7 +3,9 @@
 using namespace std;
 
 bool batteryIsOk(float temperature, float soc, float chargeRate) {
-return TempIsOk(temperature) && SOCIsOk(soc) && chargeRateIsOk(chargeRate);
+return tempIsOk(temperature) && 
+       socIsOk(soc) && 
+       chargeRateIsOk(chargeRate);
 }
 
 int main() {
@@ -11,7 +13,7 @@ int main() {
   assert(batteryIsOk(50, 85, 0) == false);
 }
 
-bool TempIsOk(float temperature){
+bool tempIsOk(float temperature){
   if(temperature < 0 || temperature > 45) {
     cout << "Temperature out of range!\n";
     return false;
@@ -19,7 +21,7 @@ bool TempIsOk(float temperature){
 return true; 
 }
 
-bool SOCIsOk(float soc){
+bool socIsOk(float soc){
   if(soc < 20 || soc > 80) {
     cout << "State of Charge out of range!\n";
     return false;
